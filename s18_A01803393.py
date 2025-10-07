@@ -8,28 +8,51 @@ for i in temp:
     print(i, "esta arriba")
 
 #EJERCIO 2
-alumnos = ["reymundo,iker,giovani,santiago"]
-calificaciones = ["50,60,40,28"]
-promedio = sum(calificaciones) / lent(calificaciones)
+alumnos = ["reymundo", "iker", "giovani", "santiago"]
+calificaciones = [50, 90, 20, 28]
 
-for i in calif:
-  if i > 70:
-    print(i "esta arriba de 70")
+promedio = sum(calificaciones) / len(calificaciones)
+print("El promedio del grupo es:", promedio)
+
+aprobados = 0
+reprobados = []
+
+for i in range(len(calificaciones)):
+  if calificaciones[i] >= 70:
+    aprobados = aprobados + 1
+  else:
+    reprobados.append(alumnos[i])
+
+porcentaje = (aprobados / len(alumnos)) * 100
+print("El porcentaje de alumnos aprobados es:", porcentaje, "%")
+
+print("Los alumnos reprobados son:")
+for nombre in reprobados:
+  print(nombre)
 
 #EJERCIO 3
-compras = ["leche,pan,huevos,manzana"]
-ya_comprado = [False , False , False, False]
+
+compras = ["pan", "leche", "huevos", "arroz", "manzanas"]
+ya_comprado = [False, True, False, False, True]
+
+print("Artículos que aún no has comprado:")
 
 for i in range(len(compras)):
-  if not ya_comprado[i]:
-  respuesta = input (f" ¿Ya compraste {compras[i]}? (s/n): ").lower()
-    if respuesta == "s":
+  if ya_comprado[i] == False:
+    print(compras[i])
+
+for i in range(len(compras)):
+  if ya_comprado[i] == False:
+    respuesta = input("¿Ya compraste " + compras[i] + "? (si/no): ")
+    if respuesta == "si":
       ya_comprado[i] = True
 
-print("Estados de la lista de compras:")
+print("Estado final de compras:")
 for i in range(len(compras)):
-  estado = "* comprado" if ya_comprado[i] else "+ pendiente"
-print(f"{compras[i]} - {estado}")
+  if ya_comprado[i] == True:
+    print(compras[i], "ya está comprado")
+  else:
+    print(compras[i], "aún pendiente")
 
 #Ejercio 4
 numeros = [45, 12, 89, 33, 7, 56, 72, 18, 90]
@@ -69,14 +92,15 @@ print("Impares:", impares)
 
 
 #EJERCIO 5
-
 usuarios = ["ana", "luis", "carlos", "maria", "sofia", "ana"]
 
 # Elimina nombres repetidos
 usuarios = list(set(usuarios))
 print("Lista actual de usuarios:", usuarios)
 
-while True:
+agregar = "si"
+
+while agregar == "si":
   nuevo = input("Ingresa un nombre de usuario: ")
 
   if nuevo in usuarios:
@@ -84,7 +108,8 @@ while True:
   else:
     usuarios.append(nuevo)
     print("Usuario agregado correctamente.")
-    break
+
+  agregar = input("¿Quieres agregar otro usuario? (si/no): ")
 
 print("Lista final de usuarios:", usuarios)
      
