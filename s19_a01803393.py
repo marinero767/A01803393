@@ -26,8 +26,6 @@ print("gana computadora")
  if eleccioncomputadora== "papel" and elleccionjugador=="piedra "
 print("gana computadora")
 
- if eleccioncomputadora== "papel" and elleccionjugador=="papel"
-print("gana computadora")
 
 
 
